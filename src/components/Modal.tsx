@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useClientContext } from "./provider/ContextProvider";
 import Heading from "./shared/Heading";
 import { WEEKS } from "./lib/constant";
@@ -16,6 +16,17 @@ const Modal = () => {
       setIsModalOpen(false);
     }
   };
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isModalOpen]);
   return (
     isModalOpen && (
       <div
