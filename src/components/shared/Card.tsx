@@ -15,8 +15,6 @@ const Card = ({
 }) => {
   const { handleSetWeeklyRecipe, weeklyRecipe } = useClientContext();
   const isSelectedRecipe = weeklyRecipe.some((item) => item.id === recipe.id);
-  console.log(recipe);
-
   return (
     <div
       className={cn(
