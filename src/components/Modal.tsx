@@ -19,17 +19,17 @@ const Modal = () => {
   return (
     isModalOpen && (
       <div
-        className="w-full h-screen fixed top-0 left-0 bg-black/50 flex items-center justify-center z-[100] overflow-y-clip"
+        className="w-full h-screen fixed top-0 left-0 bg-black/50 flex items-center justify-center z-[100] overflow-y-clip px-4"
         onClick={handleClickOutsite}
       >
         <div
           className="p-10 bg-white rounded-lg space-y-8 flex flex-col items-center duration-300 animate-in"
           ref={modalRef}
         >
-          <Heading tag="h4" className="text-3xl text-center">
+          <Heading tag="h4" className="md:text-3xl text-2xl text-center">
             Select Week
           </Heading>
-          <div className="flex gap-x-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {WEEKS.slice(1).map((w) => (
               <button
                 className={cn(
