@@ -5,11 +5,12 @@ import { useEffect, useState } from "react";
 
 const WeeklyMeal = ({ week }: { week: string }) => {
   const [recipes, setRecipes] = useState<Recipe[] | []>([]);
+  console.log(week, "week");
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem(week) || "[]");
     setRecipes(data);
-  }, []);
+  }, [week]);
 
   if (!recipes || recipes.length === 0) {
     return (
