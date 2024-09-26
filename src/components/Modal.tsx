@@ -1,12 +1,11 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useClientContext } from "./provider/ContextProvider";
 import Heading from "./shared/Heading";
 import { WEEKS } from "./lib/constant";
 import { cn, createSlug } from "./lib/utils";
 
 const Modal = () => {
-  const [week, setWeek] = useState<string>("");
-  const { handleWeeklyRecipeSave, isModalOpen, setIsModalOpen } =
+  const { handleWeeklyRecipeSave, isModalOpen, setIsModalOpen, setWeek, week } =
     useClientContext();
   const modalRef = useRef<HTMLDivElement | null>(null);
 

@@ -15,6 +15,8 @@ interface ContextType {
   handleWeeklyRecipeSave: (week: string) => void;
   isModalOpen: boolean;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  setWeek: Dispatch<SetStateAction<string>>;
+  week: string;
 }
 
 const Context = createContext<ContextType | null>(null);
@@ -26,6 +28,7 @@ export const ContextProvider = ({
 }) => {
   const [weeklyRecipe, setWeeklyRecipe] = useState<Recipe[]>([]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [week, setWeek] = useState<string>("");
 
   const handleSetWeeklyRecipe = (recipe: Recipe) => {
     setWeeklyRecipe((prev) => {
@@ -63,6 +66,7 @@ export const ContextProvider = ({
     alert("Recipe added");
     setWeeklyRecipe([]);
     setIsModalOpen(false);
+    setWeek("");
   };
 
   useEffect(() => {}, []);
@@ -74,6 +78,8 @@ export const ContextProvider = ({
         handleWeeklyRecipeSave,
         isModalOpen,
         setIsModalOpen,
+        week,
+        setWeek,
       }}
     >
       {children}
